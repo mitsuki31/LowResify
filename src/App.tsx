@@ -6,6 +6,7 @@ import ThemeToggle from "@/components/custom/ThemeToggle";
 import { pixelateImage } from "./lib/lowres.core";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
 import LowResDropzone from "./components/custom/LowResDropzone";
+import { PrivacyPolicyDialog } from "./components/custom/PrivacyPolicyDialog";
 
 const BG_CLR = {
   light: "bg-slate-50",
@@ -108,7 +109,20 @@ function App(): JSX.Element {
               </>
             )}
           </CardContent>
-          <span className="text-sm opacity-60 -mt-3 -mb-2 text-blue-700 dark:text-yellow-400">&copy; {new Date().getFullYear()} <a href="https://github.com/mitsuki31">Ryuu Mitsuki</a></span>
+          <div className="flex flex-cols justify-between border-2 border-dashed border-current/45 rounded-md align-baseline">
+            <div className="text-sm opacity-60 pt-3 pl-4 text-zinc-700 dark:text-yellow-400">
+              <p>
+                &copy; {new Date().getFullYear()} <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://github.com/mitsuki31" target="_blank">Ryuu Mitsuki</a>
+              </p>
+              <p>
+                <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://ko-fi.com/dhefam31" target="_blank">Support me on Ko-fi</a>
+              </p>
+            </div>
+            <div>
+              <p>&nbsp;</p> {/* Empty node */}
+              <PrivacyPolicyDialog />
+            </div>
+          </div>
         </Card>
       </div>
     </div>
