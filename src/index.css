@@ -119,7 +119,7 @@
   }
 }
 
-body * {
+body *:not(a) {
   /* Smooth transition for theme change */
-  @apply transition-colors duration-800 ease-in-out;
+  @apply transition-colors duration-[1.2s] ease-in-out;
 }
