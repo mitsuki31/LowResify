@@ -1,14 +1,11 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import type { JSX } from "react";
 
 export function PrivacyPolicyDialog(): JSX.Element {
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button variant="link" className="text-sm opacity-60 text-zinc-700 dark:text-yellow-400 cursor-pointer">
-          Privacy Policy
-        </Button>
+      <DialogTrigger className="text-sm opacity-60 pr-3 mt-1 text-zinc-700 dark:text-yellow-400 cursor-pointer hover:underline hover:underline-offset-3 active:underline active:underline-offset-3">
+        Privacy Policy
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto ring-1 [scrollbar-width:none] [-ms-overflow-style:none]">
         <div className="[&::-webkit-scrollbar]:hidden">

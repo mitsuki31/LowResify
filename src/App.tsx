@@ -110,7 +110,7 @@ function App(): JSX.Element {
             )}
           </CardContent>
           <div className="flex flex-cols justify-between border-2 border-dashed border-current/45 rounded-md align-baseline">
-            <div className="text-sm opacity-60 pt-3 pl-4 text-zinc-700 dark:text-yellow-400">
+            <div className="text-sm opacity-60 py-2 pl-4 text-zinc-700 dark:text-yellow-400">
               <p>
                 &copy; {new Date().getFullYear()} <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://github.com/mitsuki31" target="_blank">Ryuu Mitsuki</a>
               </p>
