@@ -6,6 +6,7 @@ import ThemeToggle from "@/components/custom/ThemeToggle";
 import { pixelateImage } from "./lib/lowres.core";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
 import LowResDropzone from "./components/custom/LowResDropzone";
+import { PrivacyPolicyDialog } from "./components/custom/PrivacyPolicyDialog";
 
 const BG_CLR = {
   light: "bg-slate-50",
@@ -13,9 +14,9 @@ const BG_CLR = {
   default: "bg-slate-50 dark:bg-zinc-900",
 } as const;
 const ACCENT_CLR = {
-  light: "bg-blue-200",
+  light: "bg-blue-200/80",
   dark: "bg-zinc-800",
-  default: "bg-blue-100 dark:bg-zinc-800",
+  default: "bg-blue-200/80 dark:bg-zinc-800",
 } as const;
 const TEXT_CLR = {
   light: "text-blue-900",
@@ -72,16 +73,18 @@ function App(): JSX.Element {
   return (
     <div className="">
       <div className={`min-h-screen flex flex-col items-center justify-center align-middle ${BG_CLR.default} ${TEXT_CLR.default}`}>
-        <Card className={`flex w-full max-w-md ${ACCENT_CLR.default} p-5 shadow-blue-200 shadow-xl dark:shadow-none dark:ring-yellow-400/70 dark:ring-[0.5px] font-mono`}>
+        <Card className={`flex w-full max-w-lg ${ACCENT_CLR.default} p-5 shadow-blue-400/50 shadow-xl dark:shadow-none dark:ring-yellow-400/70 dark:ring-[0.5px] font-mono`}>
           <ThemeToggle className="absolute -mt-2 bg-blue-100 hover:bg-blue-200 active:bg-blue-200" />
-          <span className="text-sm opacity-60 -mt-2 text-blue-700 dark:text-yellow-400 text-right">LowResify</span>
+          <span className="text-sm opacity-60 -mt-2 text-blue-700 dark:text-yellow-400 text-right">
+            <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://github.com/mitsuki31/LowResify" target="_blank">LowResify</a>
+          </span>
           <CardContent className="space-y-4">
-            <h2 className="text-xl font-bold text-center">LowRes Pixelation</h2>
+            <h2 className="text-2xl font-bold text-center">LowRes Pixelation</h2>
 
             {/* Drag-and-drop file upload */}
             <LowResDropzone setter={setFile} />
-            <div className="text-sm text-center text-gray-500 dark:text-gray-400">
-              {file ? `Selected file: ${file.name}` : "No file selected"}
+            <div className="text-sm text-center text-gray-500 dark:text-gray-400 text-wrap wrap-break-word mx-4">
+              {file ? (<>Selected file: <i>{file.name}</i></>) : "No file selected"}
             </div>
 
             <div className="space-y-2">
@@ -106,7 +109,20 @@ function App(): JSX.Element {
               </>
             )}
           </CardContent>
-          <span className="text-sm opacity-60 -mt-3 -mb-2 text-blue-700 dark:text-yellow-400">&copy; {new Date().getFullYear()} <a href="https://github.com/mitsuki31">Ryuu Mitsuki</a></span>
+          <div className="flex flex-cols justify-between border-2 border-dashed border-current/45 rounded-md align-baseline">
+            <div className="text-sm opacity-60 py-2 pl-4 text-zinc-700 dark:text-yellow-400">
+              <p>
+                &copy; {new Date().getFullYear()} <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://github.com/mitsuki31" target="_blank">Ryuu Mitsuki</a>
+              </p>
+              <p>
+                <a className="hover:underline hover:underline-offset-3 active:underline active:underline-offset-3" href="https://ko-fi.com/dhefam31" target="_blank">Support me on Ko-fi</a>
+              </p>
+            </div>
+            <div>
+              <p>&nbsp;</p> {/* Empty node */}
+              <PrivacyPolicyDialog />
+            </div>
+          </div>
         </Card>
       </div>
     </div>

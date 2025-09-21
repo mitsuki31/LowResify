@@ -20,7 +20,7 @@ export default function LowResDropzone({ setter }: { setter: (file: File | null)
     <div
       {...getRootProps()}
       className={`border-2 border-dashed rounded-xl p-6 py-12 min-h-[100px] h-[200px] text-center cursor-pointer transition-colors ${
-        isDragActive ? 'border-blue-400 bg-blue-300 dark:bg-zinc-800' : 'border-gray-300 hover:border-gray-400 dark:border-zinc-600 dark:hover:border-zinc-500'
+        isDragActive ? 'border-blue-400 bg-blue-300 dark:bg-zinc-800' : 'border-gray-400/40 hover:border-gray-400 dark:border-zinc-600 dark:hover:border-zinc-400'
       }`}
     >
       <input {...getInputProps()} />
